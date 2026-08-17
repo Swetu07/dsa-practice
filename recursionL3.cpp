@@ -52,7 +52,7 @@ int main()
 */
 
 // Factorial using Parameterised
-
+/*
 #include <iostream>
 using namespace std;
 
@@ -74,6 +74,31 @@ int main()
     cin >> n;
 
     factorial(n, 1);
+
+    return 0;
+}
+*/
+
+// Factorial using Functional
+
+#include <iostream>
+using namespace std;
+
+int factorial(int n)
+{
+    if (n == 0)
+        return 1;
+
+    return n * factorial(n - 1);
+}
+
+int main()
+{
+    int n;
+    cout<<"Enter N: ";
+    cin >> n;
+
+    cout << factorial(n);
 
     return 0;
 }

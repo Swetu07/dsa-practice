@@ -27,7 +27,7 @@ int main()
 */
 
 // Submission of first N numbers using Functional
-
+/*
 #include <iostream>
 using namespace std;
 
@@ -46,6 +46,34 @@ int main()
     cin >> n;
 
     cout << sum(n);
+
+    return 0;
+}
+*/
+
+// Factorial using Parameterised
+
+#include <iostream>
+using namespace std;
+
+void factorial(int n, int fact)
+{
+    if (n == 0)
+    {
+        cout << fact;
+        return;
+    }
+
+    factorial(n - 1, fact * n);
+}
+
+int main()
+{
+    int n;
+    cout<< "Enter N: ";
+    cin >> n;
+
+    factorial(n, 1);
 
     return 0;
 }

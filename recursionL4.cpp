@@ -23,6 +23,7 @@ int main()
 */
 
 // Swap array using 2 parameter
+/*
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -40,6 +41,24 @@ int main()
     for(int i=0; i<n; i++) cin>>arr[i];
     f(0, n-1, arr);
     for(int i=0; i<n; i++) cout<<arr[i] <<" ";
+
+    return 0;
+}
+*/
+
+// Check if string is palindrome
+#include <bits/stdc++.h>
+using namespace std;
+
+bool f(int i, string &s){
+    if(i>=s.size()/2) return true;
+    if(s[i] != s[s.size()-i-1]) return false;
+    return f(i+1, s);
+}
+int main()
+{
+    string s ="MADSM";
+    cout<< f(0,s);
 
     return 0;
 }

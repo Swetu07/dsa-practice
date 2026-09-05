@@ -80,6 +80,42 @@ int main()
 // }
 
 // check if array sorted 
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main()
+// {
+//     int n;
+//     cout << "Enter N: ";
+//     cin >> n;
+
+//     int arr[n];
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> arr[i];
+//     }
+
+//     bool sorted = true;
+
+//     for (int i = 1; i < n; i++)
+//     {
+//         if (arr[i] < arr[i - 1])
+//         {
+//             sorted = false;
+//             break;
+//         }
+//     }
+
+//     if (sorted)
+//         cout << "Array is sorted";
+//     else
+//         cout << "Array is not sorted";
+
+//     return 0;
+// }
+
+// Removing duplicates
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -91,26 +127,33 @@ int main()
 
     int arr[n];
 
+    cout << "Enter elements: ";
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
 
-    bool sorted = true;
+    int i = 0;
 
-    for (int i = 1; i < n; i++)
+    for (int j = 1; j < n; j++)
     {
-        if (arr[i] < arr[i - 1])
+        if (arr[j] != arr[i])
         {
-            sorted = false;
-            break;
+            i++;
+            arr[i] = arr[j];
         }
     }
 
-    if (sorted)
-        cout << "Array is sorted";
-    else
-        cout << "Array is not sorted";
+    int unique = i + 1;
+
+    cout << "Array after removing duplicates: ";
+
+    for (int k = 0; k < unique; k++)
+    {
+        cout << arr[k] << " ";
+    }
+
+    cout << "\nNumber of unique elements: " << unique;
 
     return 0;
 }

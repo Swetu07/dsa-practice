@@ -116,44 +116,94 @@ int main()
 // }
 
 // Removing duplicates
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main()
+// {
+//     int n;
+//     cout << "Enter N: ";
+//     cin >> n;
+
+//     int arr[n];
+
+//     cout << "Enter elements: ";
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> arr[i];
+//     }
+
+//     int i = 0;
+
+//     for (int j = 1; j < n; j++)
+//     {
+//         if (arr[j] != arr[i])
+//         {
+//             i++;
+//             arr[i] = arr[j];
+//         }
+//     }
+
+//     int unique = i + 1;
+
+//     cout << "Array after removing duplicates: ";
+
+//     for (int k = 0; k < unique; k++)
+//     {
+//         cout << arr[k] << " ";
+//     }
+
+//     cout << "\nNumber of unique elements: " << unique;
+
+//     return 0;
+// }
+
+// left rotate by one place 
 #include <bits/stdc++.h>
 using namespace std;
+
+void rotateArray(vector<int>& nums, int k)
+{
+    int n = nums.size();
+
+    k = k % n;
+
+    reverse(nums.begin(), nums.end());
+
+    reverse(nums.begin(), nums.begin() + k);
+
+    reverse(nums.begin() + k, nums.end());
+}
 
 int main()
 {
     int n;
+
     cout << "Enter N: ";
     cin >> n;
 
-    int arr[n];
+    vector<int> nums(n);
 
     cout << "Enter elements: ";
+
     for (int i = 0; i < n; i++)
     {
-        cin >> arr[i];
+        cin >> nums[i];
     }
 
-    int i = 0;
+    int k;
 
-    for (int j = 1; j < n; j++)
+    cout << "Enter K: ";
+    cin >> k;
+
+    rotateArray(nums, k);
+
+    cout << "Array after rotation: ";
+
+    for (int x : nums)
     {
-        if (arr[j] != arr[i])
-        {
-            i++;
-            arr[i] = arr[j];
-        }
+        cout << x << " ";
     }
-
-    int unique = i + 1;
-
-    cout << "Array after removing duplicates: ";
-
-    for (int k = 0; k < unique; k++)
-    {
-        cout << arr[k] << " ";
-    }
-
-    cout << "\nNumber of unique elements: " << unique;
 
     return 0;
 }

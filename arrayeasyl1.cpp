@@ -210,47 +210,84 @@ int main()
 
 
 // move zeros to the end 
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// void moveZeroes(vector<int>& nums)
+// {
+//     int j = 0;
+
+//     for (int i = 0; i < nums.size(); i++)
+//     {
+//         if (nums[i] != 0)
+//         {
+//             swap(nums[i], nums[j]);
+//             j++;
+//         }
+//     }
+// }
+
+// int main()
+// {
+//     int n;
+
+//     cout << "Enter N: ";
+//     cin >> n;
+
+//     vector<int> nums(n);
+
+//     cout << "Enter elements: ";
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> nums[i];
+//     }
+
+//     moveZeroes(nums);
+
+//     cout << "Array after moving zeroes: ";
+
+//     for (int x : nums)
+//     {
+//         cout << x << " ";
+//     }
+
+//     return 0;
+// }
+
+
+// linear search
+#include <iostream>
 using namespace std;
-
-void moveZeroes(vector<int>& nums)
-{
-    int j = 0;
-
-    for (int i = 0; i < nums.size(); i++)
-    {
-        if (nums[i] != 0)
-        {
-            swap(nums[i], nums[j]);
-            j++;
-        }
-    }
-}
 
 int main()
 {
     int n;
-
     cout << "Enter N: ";
     cin >> n;
 
-    vector<int> nums(n);
+    int arr[n];
 
     cout << "Enter elements: ";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    int target;
+    cout << "Enter element to search: ";
+    cin >> target;
 
     for (int i = 0; i < n; i++)
     {
-        cin >> nums[i];
+        if (arr[i] == target)
+        {
+            cout << "Element found at index " << i;
+            return 0;
+        }
     }
 
-    moveZeroes(nums);
-
-    cout << "Array after moving zeroes: ";
-
-    for (int x : nums)
-    {
-        cout << x << " ";
-    }
+    cout << "Element not found";
 
     return 0;
 }

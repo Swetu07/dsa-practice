@@ -159,20 +159,72 @@ int main()
 // }
 
 // left rotate by one place 
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// void rotateArray(vector<int>& nums, int k)
+// {
+//     int n = nums.size();
+
+//     k = k % n;
+
+//     reverse(nums.begin(), nums.end());
+
+//     reverse(nums.begin(), nums.begin() + k);
+
+//     reverse(nums.begin() + k, nums.end());
+// }
+
+// int main()
+// {
+//     int n;
+
+//     cout << "Enter N: ";
+//     cin >> n;
+
+//     vector<int> nums(n);
+
+//     cout << "Enter elements: ";
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> nums[i];
+//     }
+
+//     int k;
+
+//     cout << "Enter K: ";
+//     cin >> k;
+
+//     rotateArray(nums, k);
+
+//     cout << "Array after rotation: ";
+
+//     for (int x : nums)
+//     {
+//         cout << x << " ";
+//     }
+
+//     return 0;
+// }
+
+
+// move zeros to the end 
 #include <bits/stdc++.h>
 using namespace std;
 
-void rotateArray(vector<int>& nums, int k)
+void moveZeroes(vector<int>& nums)
 {
-    int n = nums.size();
+    int j = 0;
 
-    k = k % n;
-
-    reverse(nums.begin(), nums.end());
-
-    reverse(nums.begin(), nums.begin() + k);
-
-    reverse(nums.begin() + k, nums.end());
+    for (int i = 0; i < nums.size(); i++)
+    {
+        if (nums[i] != 0)
+        {
+            swap(nums[i], nums[j]);
+            j++;
+        }
+    }
 }
 
 int main()
@@ -191,14 +243,9 @@ int main()
         cin >> nums[i];
     }
 
-    int k;
+    moveZeroes(nums);
 
-    cout << "Enter K: ";
-    cin >> k;
-
-    rotateArray(nums, k);
-
-    cout << "Array after rotation: ";
+    cout << "Array after moving zeroes: ";
 
     for (int x : nums)
     {

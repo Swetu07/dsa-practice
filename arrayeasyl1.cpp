@@ -294,6 +294,94 @@ int main()
 
 
 // union of two sorted arrays
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main()
+// {
+//     int n, m;
+
+//     cout << "Enter size of first array: ";
+//     cin >> n;
+
+//     int a[n];
+
+//     cout << "Enter first sorted array: ";
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> a[i];
+//     }
+
+//     cout << "Enter size of second array: ";
+//     cin >> m;
+
+//     int b[m];
+
+//     cout << "Enter second sorted array: ";
+//     for (int i = 0; i < m; i++)
+//     {
+//         cin >> b[i];
+//     }
+
+//     vector<int> ans;
+
+//     int i = 0;
+//     int j = 0;
+
+//     while (i < n && j < m)
+//     {
+//         if (a[i] < b[j])
+//         {
+//             if (ans.empty() || ans.back() != a[i])
+//                 ans.push_back(a[i]);
+
+//             i++;
+//         }
+//         else if (a[i] > b[j])
+//         {
+//             if (ans.empty() || ans.back() != b[j])
+//                 ans.push_back(b[j]);
+
+//             j++;
+//         }
+//         else
+//         {
+//             if (ans.empty() || ans.back() != a[i])
+//                 ans.push_back(a[i]);
+
+//             i++;
+//             j++;
+//         }
+//     }
+
+//     while (i < n)
+//     {
+//         if (ans.empty() || ans.back() != a[i])
+//             ans.push_back(a[i]);
+
+//         i++;
+//     }
+
+//     while (j < m)
+//     {
+//         if (ans.empty() || ans.back() != b[j])
+//             ans.push_back(b[j]);
+
+//         j++;
+//     }
+
+//     cout << "Union: ";
+
+//     for (int x : ans)
+//     {
+//         cout << x << " ";
+//     }
+
+//     return 0;
+// }
+
+
+// intersection of 2 sorted arrays
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -330,47 +418,23 @@ int main()
 
     while (i < n && j < m)
     {
-        if (a[i] < b[j])
+        if (a[i] == b[j])
         {
-            if (ans.empty() || ans.back() != a[i])
-                ans.push_back(a[i]);
-
+            ans.push_back(a[i]);
             i++;
-        }
-        else if (a[i] > b[j])
-        {
-            if (ans.empty() || ans.back() != b[j])
-                ans.push_back(b[j]);
-
             j++;
+        }
+        else if (a[i] < b[j])
+        {
+            i++;
         }
         else
         {
-            if (ans.empty() || ans.back() != a[i])
-                ans.push_back(a[i]);
-
-            i++;
             j++;
         }
     }
 
-    while (i < n)
-    {
-        if (ans.empty() || ans.back() != a[i])
-            ans.push_back(a[i]);
-
-        i++;
-    }
-
-    while (j < m)
-    {
-        if (ans.empty() || ans.back() != b[j])
-            ans.push_back(b[j]);
-
-        j++;
-    }
-
-    cout << "Union: ";
+    cout << "Intersection: ";
 
     for (int x : ans)
     {

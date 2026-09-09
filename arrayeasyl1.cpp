@@ -257,37 +257,125 @@ int main()
 
 
 // linear search
-#include <iostream>
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+//     int n;
+//     cout << "Enter N: ";
+//     cin >> n;
+
+//     int arr[n];
+
+//     cout << "Enter elements: ";
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> arr[i];
+//     }
+
+//     int target;
+//     cout << "Enter element to search: ";
+//     cin >> target;
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         if (arr[i] == target)
+//         {
+//             cout << "Element found at index " << i;
+//             return 0;
+//         }
+//     }
+
+//     cout << "Element not found";
+
+//     return 0;
+// }
+
+
+// union of two sorted arrays
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-    int n;
-    cout << "Enter N: ";
+    int n, m;
+
+    cout << "Enter size of first array: ";
     cin >> n;
 
-    int arr[n];
+    int a[n];
 
-    cout << "Enter elements: ";
+    cout << "Enter first sorted array: ";
     for (int i = 0; i < n; i++)
     {
-        cin >> arr[i];
+        cin >> a[i];
     }
 
-    int target;
-    cout << "Enter element to search: ";
-    cin >> target;
+    cout << "Enter size of second array: ";
+    cin >> m;
 
-    for (int i = 0; i < n; i++)
+    int b[m];
+
+    cout << "Enter second sorted array: ";
+    for (int i = 0; i < m; i++)
     {
-        if (arr[i] == target)
+        cin >> b[i];
+    }
+
+    vector<int> ans;
+
+    int i = 0;
+    int j = 0;
+
+    while (i < n && j < m)
+    {
+        if (a[i] < b[j])
         {
-            cout << "Element found at index " << i;
-            return 0;
+            if (ans.empty() || ans.back() != a[i])
+                ans.push_back(a[i]);
+
+            i++;
+        }
+        else if (a[i] > b[j])
+        {
+            if (ans.empty() || ans.back() != b[j])
+                ans.push_back(b[j]);
+
+            j++;
+        }
+        else
+        {
+            if (ans.empty() || ans.back() != a[i])
+                ans.push_back(a[i]);
+
+            i++;
+            j++;
         }
     }
 
-    cout << "Element not found";
+    while (i < n)
+    {
+        if (ans.empty() || ans.back() != a[i])
+            ans.push_back(a[i]);
+
+        i++;
+    }
+
+    while (j < m)
+    {
+        if (ans.empty() || ans.back() != b[j])
+            ans.push_back(b[j]);
+
+        j++;
+    }
+
+    cout << "Union: ";
+
+    for (int x : ans)
+    {
+        cout << x << " ";
+    }
 
     return 0;
 }

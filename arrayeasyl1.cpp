@@ -382,64 +382,100 @@ int main()
 
 
 // intersection of 2 sorted arrays
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main()
+// {
+//     int n, m;
+
+//     cout << "Enter size of first array: ";
+//     cin >> n;
+
+//     int a[n];
+
+//     cout << "Enter first sorted array: ";
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> a[i];
+//     }
+
+//     cout << "Enter size of second array: ";
+//     cin >> m;
+
+//     int b[m];
+
+//     cout << "Enter second sorted array: ";
+//     for (int i = 0; i < m; i++)
+//     {
+//         cin >> b[i];
+//     }
+
+//     vector<int> ans;
+
+//     int i = 0;
+//     int j = 0;
+
+//     while (i < n && j < m)
+//     {
+//         if (a[i] == b[j])
+//         {
+//             ans.push_back(a[i]);
+//             i++;
+//             j++;
+//         }
+//         else if (a[i] < b[j])
+//         {
+//             i++;
+//         }
+//         else
+//         {
+//             j++;
+//         }
+//     }
+
+//     cout << "Intersection: ";
+
+//     for (int x : ans)
+//     {
+//         cout << x << " ";
+//     }
+
+//     return 0;
+// }
+
+// missing number in array
 #include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-    int n, m;
+    int n;
 
-    cout << "Enter size of first array: ";
+    cout << "Enter N: ";
     cin >> n;
 
-    int a[n];
+    int arr[n];
 
-    cout << "Enter first sorted array: ";
+    cout << "Enter elements: ";
+
     for (int i = 0; i < n; i++)
     {
-        cin >> a[i];
+        cin >> arr[i];
     }
 
-    cout << "Enter size of second array: ";
-    cin >> m;
+    int expectedSum = n * (n + 1) / 2;
 
-    int b[m];
+    int actualSum = 0;
 
-    cout << "Enter second sorted array: ";
-    for (int i = 0; i < m; i++)
+    for (int i = 0; i < n; i++)
     {
-        cin >> b[i];
+        actualSum += arr[i];
     }
 
-    vector<int> ans;
+    int missing = expectedSum - actualSum;
 
-    int i = 0;
-    int j = 0;
-
-    while (i < n && j < m)
-    {
-        if (a[i] == b[j])
-        {
-            ans.push_back(a[i]);
-            i++;
-            j++;
-        }
-        else if (a[i] < b[j])
-        {
-            i++;
-        }
-        else
-        {
-            j++;
-        }
-    }
-
-    cout << "Intersection: ";
-
-    for (int x : ans)
-    {
-        cout << x << " ";
-    }
+    cout << "Missing number: " << missing;
 
     return 0;
 }

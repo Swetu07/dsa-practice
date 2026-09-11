@@ -444,7 +444,45 @@ int main()
 //     return 0;
 // }
 
+
 // missing number in array
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main()
+// {
+//     int n;
+
+//     cout << "Enter N: ";
+//     cin >> n;
+
+//     int arr[n];
+
+//     cout << "Enter elements: ";
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> arr[i];
+//     }
+
+//     int expectedSum = n * (n + 1) / 2;
+
+//     int actualSum = 0;
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         actualSum += arr[i];
+//     }
+
+//     int missing = expectedSum - actualSum;
+
+//     cout << "Missing number: " << missing;
+
+//     return 0;
+// }
+
+
+//  Max Consecutive Ones
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -464,18 +502,23 @@ int main()
         cin >> arr[i];
     }
 
-    int expectedSum = n * (n + 1) / 2;
-
-    int actualSum = 0;
+    int count = 0;
+    int maxCount = 0;
 
     for (int i = 0; i < n; i++)
     {
-        actualSum += arr[i];
+        if (arr[i] == 1)
+        {
+            count++;
+            maxCount = max(maxCount, count);
+        }
+        else
+        {
+            count = 0;
+        }
     }
 
-    int missing = expectedSum - actualSum;
-
-    cout << "Missing number: " << missing;
+    cout << "Maximum consecutive ones: " << maxCount;
 
     return 0;
 }

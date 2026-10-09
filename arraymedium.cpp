@@ -133,49 +133,85 @@
 
 
 // Sort an array of 0's 1's & 2's 
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     int n;
+
+//     cout << "Enter size: ";
+//     cin >> n;
+
+//     vector<int> arr(n);
+
+//     cout << "Enter elements (only 0, 1, 2): ";
+//     for (int i = 0; i < n; i++) {
+//         cin >> arr[i];
+//     }
+
+//     int low = 0;
+//     int mid = 0;
+//     int high = n - 1;
+
+//     while (mid <= high) {
+
+//         if (arr[mid] == 0) {
+//             swap(arr[low], arr[mid]);
+//             low++;
+//             mid++;
+//         }
+
+//         else if (arr[mid] == 1) {
+//             mid++;
+//         }
+
+//         else { 
+//             swap(arr[mid], arr[high]);
+//             high--;
+//         }
+//     }
+
+//     cout << "Sorted array: ";
+
+//     for (int i = 0; i < n; i++) {
+//         cout << arr[i] << " ";
+//     }
+
+//     return 0;
+// }
+
+// Majority Element (Moore Voting Algorithm)
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
     int n;
-
-    cout << "Enter size: ";
+    cout << "Enter array size: ";
     cin >> n;
 
     vector<int> arr(n);
 
-    cout << "Enter elements (only 0, 1, 2): ";
+    cout << "Enter array elements: ";
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
     }
 
-    int low = 0;
-    int mid = 0;
-    int high = n - 1;
-
-    while (mid <= high) {
-
-        if (arr[mid] == 0) {
-            swap(arr[low], arr[mid]);
-            low++;
-            mid++;
-        }
-
-        else if (arr[mid] == 1) {
-            mid++;
-        }
-
-        else { 
-            swap(arr[mid], arr[high]);
-            high--;
-        }
-    }
-
-    cout << "Sorted array: ";
-
+    int candidate = 0;
+    int count = 0;
+    
     for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
+        if (count == 0) {
+            candidate = arr[i];
+        }
+
+        if (arr[i] == candidate) {
+            count++;
+        } else {
+            count--;
+        }
     }
+
+    cout << "Majority element: " << candidate << endl;
 
     return 0;
 }

@@ -181,11 +181,48 @@
 // }
 
 // Majority Element (Moore Voting Algorithm)
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     int n;
+//     cout << "Enter array size: ";
+//     cin >> n;
+
+//     vector<int> arr(n);
+
+//     cout << "Enter array elements: ";
+//     for (int i = 0; i < n; i++) {
+//         cin >> arr[i];
+//     }
+
+//     int candidate = 0;
+//     int count = 0;
+    
+//     for (int i = 0; i < n; i++) {
+//         if (count == 0) {
+//             candidate = arr[i];
+//         }
+
+//         if (arr[i] == candidate) {
+//             count++;
+//         } else {
+//             count--;
+//         }
+//     }
+
+//     cout << "Majority element: " << candidate << endl;
+
+//     return 0;
+// }
+
+// Kadane's Algorithm for Maximum Subarray Sum
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
     int n;
+
     cout << "Enter array size: ";
     cin >> n;
 
@@ -196,22 +233,20 @@ int main() {
         cin >> arr[i];
     }
 
-    int candidate = 0;
-    int count = 0;
-    
-    for (int i = 0; i < n; i++) {
-        if (count == 0) {
-            candidate = arr[i];
-        }
+    int sum = 0;
+    int maxSum = INT_MIN;
 
-        if (arr[i] == candidate) {
-            count++;
-        } else {
-            count--;
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+
+        maxSum = max(maxSum, sum);
+
+        if (sum < 0) {
+            sum = 0;
         }
     }
 
-    cout << "Majority element: " << candidate << endl;
+    cout << "Maximum subarray sum: " << maxSum << endl;
 
     return 0;
 }
